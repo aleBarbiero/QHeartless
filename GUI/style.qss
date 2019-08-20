@@ -1,0 +1,104 @@
+* {
+    background: #333131;
+    font-family:Courier New;
+    font-size :18px;
+    color:#000000;
+}
+
+QPushButton {
+    background:#1BC7FF;
+}
+
+MyMainWindow>QMenuBar {
+    padding:5px 0;
+    color:#FFFFFF;
+}
+
+MyMainWindow>QMenuBar:hover{
+    color:#333131;
+}
+
+
+MyMainWindow>QMenuBar>QMenu {
+    background:#333131;
+    color:#FFFFFF;
+}
+
+MyMainWindow>QMenuBar>QMenu::item:selected{
+    background:#626363;
+    color: #000000;
+}
+
+MyMainWindow>QMenuBar>QMenu::item:pressed{
+    background:#333131;
+    color: #000000;
+}
+
+MyMainWindow>QMenuBar::item:selected{
+    background:#626363;
+    color: #000000;
+}
+
+MyMainWindow>QMenuBar::item:pressed{
+    background:#333131;
+    color: #000000;
+}
+
+Index>QPushButton{
+    width:160px;
+    padding:10px;
+
+    background:#00A3D7;
+    border:none;
+    border-radius:6px;
+
+    color:#FFFFFF;
+}
+
+Index>QPushButton:hover{
+    background:#1BC7FF;
+}
+
+Insert>QGroupBox{
+    color:#FFFFFF;
+}
+
+Insert>QFormLayout>QLabel{
+    color:#FFFFFF;
+}
+
+QLabel{
+    color:#FFFFFF;
+}
+
+
+QComboBox {
+    background-color:#00A3D7;
+    color:#000000;
+}
+
+QComboBox:!enabled {
+    background-color:#1BDAFF;
+    color:#000000;
+}
+
+QComboBox QAbstractItemView {
+    background-color:#1BC7FF;
+}
+
+QLineEdit {
+    background-color:#FFFFFF;
+}
+
+QTableWidget {
+    background-color:#FFFFFF;
+    color:#000000;
+}
+
+QHeaderView::section:selected {
+    background-color:#1BC7FF;
+}
+
+QHeaderView::section {
+    background-color:#1BC7FF;
+}

@@ -1,0 +1,23 @@
+#ifndef INDEX_H
+#define INDEX_H
+
+#include <QWidget>
+#include <QLabel>
+#include <QPushButton>
+#include <QPixmap>
+
+class Index:public QWidget{
+    Q_OBJECT
+    public:
+        Index(QWidget* =nullptr);
+    private:
+        QLabel* title;
+        QLabel* img;
+        QPixmap titleLimit;
+        QPixmap imgLimit;
+        QPushButton* insert;
+        QPushButton* remove;
+        QPushButton* battle;
+};//index
+
+#endif // INDEX_H

@@ -32,9 +32,10 @@ unsigned int Darksider::getLevel() const{
 
 unsigned int Darksider::attack(){
     if(isAlive()){
-        Darksider::defend(this->getHP()-1);
+        if(getRemainingHP()>1){
+            Darksider::defend(this->getRemainingHP()-1);
         if(getDam()>getHP())
-            Heartless::setDam(getHP());
+            Heartless::setDam(getHP());}
         return 1000000;
     }else return 0;
 }//attack

@@ -30,7 +30,7 @@ SOURCES += \
         GUI/Insert.cpp \
         GUI/Listino.cpp \
         GUI/Model.cpp \
-        GUI/Myxml.cpp \
+        GUI/MyXml.cpp \
         GUI/RemoveL.cpp \
         Mymainwindow.cpp \
         characters/ArmedDefender.cpp \
@@ -49,7 +49,7 @@ HEADERS += \
         GUI/Insert.h \
         GUI/Listino.h \
         GUI/Model.h \
-        GUI/Myxml.h \
+        GUI/MyXml.h \
         GUI/RemoveL.h \
         Mymainwindow.h \
         characters/ArmedDefender.h \

@@ -88,6 +88,9 @@ void Battle::refreshTabAtt(Model* modello){
         tabAtt->setItem(i,4,dam);
         tabAtt->setItem(i,5,AP);
         tabAtt->setItem(i,6,shield);
+        if(((((*modello).getQ().begin()+i))->getT().getRemainingHP())==0)
+            for(int j=0;j<tabAtt->columnCount();j++)
+                tabAtt->item(i,j)->setBackgroundColor(Qt::red);
     }//for
 }//refreshTab
 
@@ -109,5 +112,8 @@ void Battle::refreshTabDef(Model* modello){
         tabDef->setItem(i,4,dam);
         tabDef->setItem(i,5,AP);
         tabDef->setItem(i,6,shield);
+        if(((((*modello).getQ().begin()+i))->getT().getRemainingHP())==0)
+            for(int j=0;j<tabDef->columnCount();j++)
+                tabDef->item(i,j)->setBackgroundColor(Qt::red);
     }//for
 }//refreshTab

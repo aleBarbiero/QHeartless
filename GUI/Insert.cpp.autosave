@@ -1,0 +1,179 @@
+#include "Insert.h"
+#include <QFormLayout>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QPixmap>
+#include <QIntValidator>
+
+Insert::Insert(QWidget *wid):QWidget(wid),
+    typeL(new QLabel("Genere")),
+    nameL(new QLabel("Nome")),
+    hpL(new QLabel("HP")),
+    apL(new QLabel("AP")),
+    shieldL(new QLabel("Scudo in %")),
+    typeValue(new QComboBox(this)),
+    nameValue(new QLineEdit(this)),
+    hpValue(new QLineEdit(this)),
+    apValue(new QLineEdit(this)),
+    shieldValue(new QLineEdit(this)),
+    imgL(new QLabel(this)),
+    add(new QPushButton("Aggiungi", this)),
+    del(new QPushButton("Azzera form", this)){
+        QVBoxLayout* mainLayout=new QVBoxLayout(this);
+        qgb=new QGroupBox("Aggiunta nuovo Heartless");
+        qfl=new QFormLayout();
+        button=new QHBoxLayout();
+        img=new QHBoxLayout();
+        hpValue->setValidator(new QIntValidator(0,10000,this));
+        apValue->setValidator(new QIntValidator(0,100,this));
+        shieldValue->setValidator(new QIntValidator(0,100,this));
+        typeValue->addItem("NeoShadow");
+        typeValue->addItem("NovaShadow");
+        typeValue->addItem("Defender");
+        typeValue->addItem("ArmedDefender");
+        typeValue->addItem("Darksider");
+        qfl->addRow(typeL,typeValue);
+        qfl->addRow(nameL,nameValue);
+        qfl->addRow(hpL,hpValue);
+        qgb->setLayout(qfl);
+        // MAIN LAYOUT
+        mainLayout->addWidget(qgb);
+        mainLayout->addLayout(img);
+        mainLayout->addWidget(del);
+        mainLayout->addWidget(add);
+        //connect
+        connect(typeValue,SIGNAL(currentTextChanged(QString)),this,SLOT(modify(QString)));
+        connect(del,SIGNAL(clicked()),this,SLOT(delElement()));
+        //emit
+        emit(typeValue->currentTextChanged(typeValue->currentText()));
+}//insert
+
+//accessori
+string Insert::getType() const{
+    return typeValue->currentText().toStdString();
+}//getType
+
+string Insert::getName() const{
+    return nameValue->text().toStdString();
+}//getName
+
+unsigned int Insert::getHP() const{
+    return hpValue->text().toInt();
+}//getHP
+
+unsigned int Insert::getAP() const{
+    return apValue->text().toInt();
+}//getAP
+
+unsigned int Insert::getShield() const{
+    return shieldValue->text().toInt();
+}//getShield
+
+QPushButton* Insert::getAdd() const{
+    return add;
+}//getAdd
+
+QPushButton* Insert::getDel() const{
+    return del;
+}//getDel
+
+//modificatori
+void Insert::setType(QString q){
+    typeValue->setCurrentText(q);
+}//setType
+
+void Insert::setName(QString q){
+    nameValue->setText(q);
+}//setName
+
+void Insert::setHP(QString q){
+    hpValue->setText(q);
+}//setName
+
+void Insert::setAP(QString q){
+    apValue->setText(q);
+}//setName
+
+void Insert::setShield(QString q){
+    shieldValue->setText(q);
+}//setName
+
+//metodi
+void Insert::modify(QString q){
+    if(q=="NeoShadow"){
+        delForm();
+        qfl->addRow(apL,apValue);
+        apL->setVisible(true);
+        apValue->setVisible(true);
+        QPixmap i=QPixmap(":/images/NeoShadow.png");
+        imgL->setFixedSize(300,300);
+        i=i.scaled(imgL->size(),Qt::KeepAspectRatio);
+        imgL->setPixmap(i);
+        img->addWidget(imgL);
+    }else if(q=="Defender"){
+                delForm();
+                qfl->addRow(shieldL,shieldValue);
+                shieldL->setVisible(true);
+                shieldValue->setVisible(true);
+                QPixmap i=QPixmap(":/images/Defender.png");
+                imgL->setFixedSize(300,300);
+                i=i.scaled(imgL->size(),Qt::KeepAspectRatio);
+                imgL->setPixmap(i);
+                img->addWidget(imgL);
+            }else if(q=="Darksider"){
+                delForm();
+                qfl->addRow(apL,apValue);
+                apL->setVisible(true);
+                apValue->setVisible(true);
+                QPixmap i=QPixmap(":/images/Darksider.png");
+                imgL->setFixedSize(300,300);
+                i=i.scaled(imgL->size(),Qt::KeepAspectRatio);
+                imgL->setPixmap(i);
+                img->addWidget(imgL);
+                    }else if(q=="NovaShadow"){
+                            delForm();
+                            qfl->addRow(apL,apValue);
+                            apL->setVisible(true);
+                            apValue->setVisible(true);
+                            QPixmap i=QPixmap(":/images/NovaShadow.png");
+                            imgL->setFixedSize(300,300);
+                            i=i.scaled(imgL->size(),Qt::KeepAspectRatio);
+                            imgL->setPixmap(i);
+                            img->addWidget(imgL);
+                          }else{
+                                delForm();
+                                qfl->addRow(shieldL,shieldValue);
+                                shieldL->setVisible(true);
+                                shieldValue->setVisible(true);
+                                QPixmap i=QPixmap(":/images/ArmedDefender.png");
+                                imgL->setFixedSize(300,300);
+                                i=i.scaled(imgL->size(),Qt::KeepAspectRatio);
+                                imgL->setPixmap(i);
+                                img->addWidget(imgL);
+    }//if_else
+}//modify
+
+void Insert::delElement() const{
+    nameValue->clear();
+    hpValue->clear();
+    apValue->clear();
+    shieldValue->clear();
+}//delElement
+
+void Insert::delForm() const{
+    qfl->removeWidget(apL);
+    qfl->removeWidget(apValue);
+    qfl->removeWidget(shieldL);
+    qfl->removeWidget(shieldValue);
+    apL->setVisible(false);
+    apValue->setVisible(false);
+    shieldL->setVisible(false);
+    shieldValue->setVisible(false);
+}//delForm
+
+
+
+
+
+
+

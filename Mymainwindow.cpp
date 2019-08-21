@@ -104,6 +104,7 @@ void MyMainWindow::removeSet() const{
     list->hide();
     search->show();
     search->fullTab(modello);
+    search->setIndex(modello);
 }//insertSet
 
 void MyMainWindow::battleSet() const{
@@ -131,6 +132,10 @@ void MyMainWindow::load(){
     file=(QFileDialog::getOpenFileName(this,"Carica","","Documento XML (*.xml);;All Files (*)"));
     modello->loadF(file);
     search->fullTab(modello);
+    search->setIndex(modello);
+    batt->refreshTabAtt(modello);
+    batt->refreshTabDef(modello);
+    list->fullTab(modello);
 }//load
 
 void MyMainWindow::save(){
@@ -189,7 +194,11 @@ void MyMainWindow::addEl(){
      if(type=="Darksider")
         modello->insert(new Darksider(newhp,newname,0,ins->getAP()));
     ins->delElement();
-    emit refresh();
+    list->fullTab(modello);
+    search->fullTab(modello);
+    batt->refreshTabAtt(modello);
+    batt->refreshTabDef(modello);
+    search->setIndex(modello);
 }//addEl
 
 void MyMainWindow::searchEl(){
@@ -204,21 +213,29 @@ void MyMainWindow::delEl(){
         modello->remove(search->getIndex());
         search->refreshTab(modello);
     }//if_else
+    search->setIndex(modello);
 }//delEL
 
 void MyMainWindow::battleNow(){
-    if(batt->getIndexAtt()!=-1 && batt->getIndexDef()!=-1){
-        unsigned int iA=batt->getIndexAtt();
-        unsigned int iD=batt->getIndexDef();
-        unsigned int d=modello->att(iA);
-        modello->def(iD,d);
-        batt->refreshTabAtt(modello);
-        batt->refreshTabDef(modello);
+    if(batt->getIndexAtt()!=batt->getIndexDef()){
+        if(batt->getIndexAtt()!=-1 && batt->getIndexDef()!=-1){
+            unsigned int iA=batt->getIndexAtt();
+            unsigned int iD=batt->getIndexDef();
+            unsigned int d=modello->att(iA);
+            modello->def(iD,d);
+            batt->refreshTabAtt(modello);
+            batt->refreshTabDef(modello);
+        }else{
+            QMessageBox msg;
+            msg.critical(nullptr,"Errore","Seleziona entrambi i personaggi!");
+            msg.setFixedSize(500,200);
+            return;
+        }//if_else_internal
     }else{
         QMessageBox msg;
-        msg.critical(nullptr,"Errore","Seleziona entrambi i personaggi!");
-        msg.setFixedSize(500,200);
+        msg.critical(nullptr,"Errore","Non puoi attaccare e difendere con lo stesso personaggio!");
+        msg.setFixedSize(500,300);
         return;
-    }//if_else
+    }
 }//battleNow
 

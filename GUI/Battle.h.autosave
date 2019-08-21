@@ -25,36 +25,23 @@ class Battle:public QWidget{
     Q_OBJECT
     private:
         //elementi_Qt_att
-        //QHBoxLayout* insertSearchAtt;
-        //QPushButton* findBAtt;
         QVBoxLayout* listinoAtt;
         QTableWidget* tabAtt;
-        //QLineEdit* searchVAtt;
-        //QComboBox* searchForAtt;
-        //QList<int> indexAtt;
         //elementi_Qt_def
-        //QHBoxLayout* insertSearchDef;
-        //QPushButton* findBDef;
         QVBoxLayout* listinoDef;
         QTableWidget* tabDef;
-        //QLineEdit* searchVDef;
-        //QComboBox* searchForDef;
-        //QList<int> indexDef;
         //altro
         QPushButton* go;
     public:
         //costruttore
         Battle(QWidget* =nullptr);
         //accessori
-        //QPushButton* getFindBAtt() const;
-        //QPushButton* getFindBDef() const;
         QPushButton* getGoB() const;
-        void refreshTabAtt(Model*);
-        void refreshTabDef(Model*);
         int getIndexAtt() const;
         int getIndexDef() const;
-        //QString getSearchAtt() const;
-        //QString getSearchDef() const;
+        //aggiornamento_tabelle
+        void refreshTabAtt(Model*);
+        void refreshTabDef(Model*);
 };//removeL
 
 #endif // BATTLE_H

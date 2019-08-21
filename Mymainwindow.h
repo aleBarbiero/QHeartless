@@ -42,8 +42,6 @@ class MyMainWindow:public QWidget{
         void save();
         void load();
         void battleNow();
-    signals:
-        void refresh();
 };//mainWindow
 
 #endif // MAINWINDOW_H

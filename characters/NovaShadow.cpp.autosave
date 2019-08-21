@@ -78,11 +78,5 @@ void NovaShadow::xml(QXmlStreamWriter& x)const{
 		x.writeStartElement("AP");
         x.writeCharacters(QString::number(getAP()));
 		x.writeEndElement();
-        /*x.writeStartElement("Boosted_AP");
-        x.writeCharacters(QString::number(getBoostAP()));
-		x.writeEndElement();
-		x.writeStartElement("Costo_attacco_in_HP");
-        x.writeCharacters(QString::number(getLossHP()));
-        x.writeEndElement();*/
 	x.writeEndElement();
 }//xml

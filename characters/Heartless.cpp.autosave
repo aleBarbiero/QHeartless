@@ -1,22 +1,10 @@
 #include "Heartless.h"
 using namespace std;
 
-/*static string xmlNeoShadow="NeoShadow";
-static string xmlNovaShadow="NovaShadow";
-static string xmlDefender="Defender";
-static string xmlArmedDefender="ArmedDefender";
-static string xmlDarksider="Darksider";*/
-
-//costruttore
-//Heartless::Heartless():hp(0),name(""),damage(0),lev(0){}//Heartless
 
 Heartless::Heartless(unsigned int h,string n,unsigned int d):hp(h),name(n),damage(d),lev(1){};
 
 //operatori
-/*Heartless& Heartless::operator=(const Heartless&){
-
-}*/
-
 bool Heartless::operator==(Heartless& n){
     return (n.name==name && n.getLevel()==getLevel());
 }//==
@@ -73,11 +61,7 @@ unsigned int Heartless::getLevel() const{
 void Heartless::setLevel(unsigned int n){
     lev=n;
 }//setLevel
-/*
-string Heartless::getType() const{
-    return "Heartless";
-}//getType
-*/
+
 unsigned int Heartless::getShield()const{
     return 0;
 }//getShield
@@ -102,19 +86,7 @@ bool Heartless::isAlive() const{
 void Heartless::shooted(unsigned int dam){
     damage+=dam;
 }//shooted
-/*
-unsigned int Heartless::attack(){
-    return 0;
-}//attack
 
-unsigned int Heartless::defend(unsigned int att){
-    return 0;
-}//defend
-
-Heartless* Heartless::clone() const{
-    return new Heartless()
-}//clone
-*/
 void Heartless::xml(QXmlStreamWriter &x) const{
 	x.writeStartElement("Nome");
     x.writeCharacters(QString::fromStdString(Heartless::getName()));

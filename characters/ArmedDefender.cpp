@@ -35,7 +35,7 @@ unsigned int ArmedDefender::getAP()const{
 unsigned int ArmedDefender::defend(unsigned int d){
     if(isAlive()){
         d=d*boostDef;
-        unsigned int effS=0;
+        int effS=0;
         if(getBoost()>0.1)
             setBoost(getBoost()-0.1);
         if(getShield()!=0){
@@ -47,6 +47,8 @@ unsigned int ArmedDefender::defend(unsigned int d){
                 setShield(effS*100/Heartless::getHP());
         }else
             Heartless::shooted(d);
+        if(getDam()>getHP())
+            Heartless::setDam(getHP());
         return d;
     }else return 0;
 }//defend
@@ -57,6 +59,9 @@ ArmedDefender* ArmedDefender::clone() const{
 
 void ArmedDefender::xml(QXmlStreamWriter& x)const{
     x.writeStartElement(QString::fromStdString("ArmedDefender"));
-		Defender::xml(x);
+        Heartless::xml(x);
+        x.writeStartElement("Percentuale_scudo");
+        x.writeCharacters(QString::number(getShield()));
+        x.writeEndElement();
 	x.writeEndElement();
 }//xml

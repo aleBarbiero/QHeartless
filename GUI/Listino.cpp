@@ -58,5 +58,8 @@ void Listino::fullTab(Model* modello){
         tab->setItem(i,4,dam);
         tab->setItem(i,5,AP);
         tab->setItem(i,6,shield);
+        if(((((*modello).getQ().begin()+i))->getT().getRemainingHP())==0)
+            for(int j=0;j<tab->columnCount();j++)
+                tab->item(i,j)->setBackgroundColor(Qt::red);
     }//for
 }//fullTab

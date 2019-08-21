@@ -9,7 +9,7 @@
 #include "../characters/Defender.h"
 #include "../characters/ArmedDefender.h"
 #include "../characters/Darksider.h"
-#include "Myxml.h"
+#include "MyXml.h"
 #include <QWidget>
 #include <QComboBox>
 #include <QHBoxLayout>
@@ -40,6 +40,7 @@ class RemoveL:public QWidget{
         QPushButton* getDelB() const;
         QString getSearch() const;
         int getIndex() const;
+        void setIndex(Model*);
         void refreshTab(Model*);
         void fullTab(Model*);
 };//removeL

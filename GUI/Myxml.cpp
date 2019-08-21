@@ -1,4 +1,4 @@
-#include "Myxml.h"
+#include "MyXml.h"
 #include "container/Container.cpp"
 #include "container/DeepPtr.cpp"
 
@@ -26,14 +26,14 @@ Container<DeepPtr<Heartless>> MyXml::load(const QString& file) const{
     if(saveFile.open(QIODevice::ReadOnly)){//1
       QXmlStreamReader read(&saveFile);
       if(read.readNextStartElement() && read.name()=="Heartless"){//2
-        while (read.readNextStartElement()){
+        while(read.readNextStartElement()){
           QStringRef type=read.name();
+          read.readNextStartElement();
+          std::string name=read.readElementText().toStdString();
           read.readNextStartElement();
           unsigned int hp=read.readElementText().toInt();
           read.readNextStartElement();
           unsigned int dam=read.readElementText().toInt();
-          read.readNextStartElement();
-          std::string name=read.readElementText().toStdString();
           if (type==QString::fromStdString("Defender")){
             read.readNextStartElement();
             unsigned int shield=read.readElementText().toInt();

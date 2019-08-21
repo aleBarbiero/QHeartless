@@ -8,7 +8,7 @@
 #include "../characters/Defender.h"
 #include "../characters/ArmedDefender.h"
 #include "../characters/Darksider.h"
-#include "Myxml.h"
+#include "MyXml.h"
 #include <QWidget>
 #include <QComboBox>
 #include <QHBoxLayout>

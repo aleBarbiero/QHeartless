@@ -30,7 +30,7 @@ unsigned int Defender::getShield() const{
 }//getShield
 
 void Defender::setShield(unsigned int s){
-    if(s>=0 && s<=100)
+    if(s<=100)
         shield=s;
 }//setShield
 
@@ -43,7 +43,7 @@ unsigned int Defender::defend(unsigned int d){
             if(effS<=0)
                 shield=0;
             else
-                shield=((effS*100)/Heartless::getHP());
+                shield=((static_cast<unsigned int>(effS*100))/Heartless::getHP());
         }else
             Heartless::shooted(d);
         if(getDam()>getHP())

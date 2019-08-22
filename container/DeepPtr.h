@@ -6,8 +6,6 @@ template<class T> class DeepPtr{
         T *el;
     public:
         //costruttori/distruttore
-        //DeepPtr();
-        //DeepPtr(const T* newEl=nullptr);
         DeepPtr(const DeepPtr&);
         DeepPtr(const T*t = nullptr) : el((t != nullptr) ? t->clone() : nullptr){}
         ~DeepPtr();

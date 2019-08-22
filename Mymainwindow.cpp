@@ -219,10 +219,10 @@ void MyMainWindow::delEl(){
 void MyMainWindow::battleNow(){
     if(batt->getIndexAtt()!=batt->getIndexDef()){
         if(batt->getIndexAtt()!=-1 && batt->getIndexDef()!=-1){
-            unsigned int iA=batt->getIndexAtt();
-            unsigned int iD=batt->getIndexDef();
+            unsigned int iA=static_cast<unsigned int>(batt->getIndexAtt());
+            unsigned int iD=static_cast<unsigned int>(batt->getIndexDef());
             unsigned int d=modello->att(iA);
-            modello->def(iD,d);
+            modello->def(iD,static_cast<int>(d));
             batt->refreshTabAtt(modello);
             batt->refreshTabDef(modello);
         }else{

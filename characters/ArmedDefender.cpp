@@ -1,4 +1,5 @@
 #include "ArmedDefender.h"
+
 //costruttore
 ArmedDefender::ArmedDefender(unsigned int newHP,string newN,unsigned int newDam,unsigned int shi):Heartless(newHP,newN,newDam),Defender(newHP,newN,newDam,shi){
 	boostDef=1.0;
@@ -34,7 +35,7 @@ unsigned int ArmedDefender::getAP()const{
 
 unsigned int ArmedDefender::defend(unsigned int d){
     if(isAlive()){
-        d=d*boostDef;
+        d=static_cast<unsigned int>(d*boostDef);
         int effS=0;
         if(getBoost()>0.1)
             setBoost(getBoost()-0.1);
@@ -44,7 +45,7 @@ unsigned int ArmedDefender::defend(unsigned int d){
             if(effS<=0)
                 setShield(0);
             else
-                setShield(effS*100/Heartless::getHP());
+                setShield((static_cast<unsigned int>(effS*100)/Heartless::getHP()));
         }else
             Heartless::shooted(d);
         if(getDam()>getHP())

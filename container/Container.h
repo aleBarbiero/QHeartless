@@ -142,12 +142,13 @@ template<class T> typename Container<T>::Iterator& Container<T>::Iterator::opera
 }//-
 
 template<class T> typename Container<T>::Iterator& Container<T>::Iterator::operator++(){
-    if(!end && nodo)
+    if(!end && nodo){
         if(nodo->next==nullptr){
             nodo=nodo+1;
             end=true;
         }else
             nodo=nodo->next;
+    }//if
     return *this;
 }//++
 
@@ -160,7 +161,7 @@ template<class T> typename Container<T>::Iterator& Container<T>::Iterator::opera
     return *this;
 }//--
 
-template<class T> typename Container<T>::Iterator Container<T>::Iterator::operator++(int n){
+template<class T> typename Container<T>::Iterator Container<T>::Iterator::operator++(int){
     Iterator temp=*this;
     if(nodo && !end){
         if(nodo->next==nullptr){
@@ -172,7 +173,7 @@ template<class T> typename Container<T>::Iterator Container<T>::Iterator::operat
     return temp;
 }//++int
 
-template<class T> typename Container<T>::Iterator Container<T>::Iterator::operator--(int n){
+template<class T> typename Container<T>::Iterator Container<T>::Iterator::operator--(int){
     Iterator temp=*this;
     if(end){
         nodo=nodo-1;
@@ -231,12 +232,13 @@ template <class T> typename Container<T>::Const_Iterator& Container<T>::Const_It
 }//-
 
 template <class T> typename Container<T>::Const_Iterator& Container<T>::Const_Iterator::operator++(){
-    if(!end && nodo)
+    if(!end && nodo){
         if(nodo->next==nullptr){
             nodo=nodo+1;
             end=true;
         }else
             nodo=nodo->next;
+    }//if
     return *this;
 }//++
 
@@ -249,7 +251,7 @@ template <class T> typename Container<T>::Const_Iterator& Container<T>::Const_It
     return *this;
 }//--
 
-template<class T> typename Container<T>::Const_Iterator Container<T>::Const_Iterator::operator++(int n){
+template<class T> typename Container<T>::Const_Iterator Container<T>::Const_Iterator::operator++(int){
     Iterator temp=*this;
     if(nodo && !end){
         if(nodo->next==nullptr){
@@ -261,7 +263,7 @@ template<class T> typename Container<T>::Const_Iterator Container<T>::Const_Iter
     return temp;
 }//++int
 
-template<class T> typename Container<T>::Const_Iterator Container<T>::Const_Iterator::operator--(int n){
+template<class T> typename Container<T>::Const_Iterator Container<T>::Const_Iterator::operator--(int){
     Iterator temp=*this;
     if(end){
         nodo=nodo-1;

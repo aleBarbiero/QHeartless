@@ -11,6 +11,7 @@ class Index:public QWidget{
     public:
         Index(QWidget* =nullptr);
     private:
+        //layout
         QLabel* title;
         QLabel* img;
         QPixmap titleLimit;

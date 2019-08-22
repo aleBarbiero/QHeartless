@@ -58,15 +58,15 @@ string Insert::getName() const{
 }//getName
 
 unsigned int Insert::getHP() const{
-    return hpValue->text().toInt();
+    return static_cast<unsigned int>(hpValue->text().toInt());
 }//getHP
 
 unsigned int Insert::getAP() const{
-    return apValue->text().toInt();
+    return static_cast<unsigned int>(apValue->text().toInt());
 }//getAP
 
 unsigned int Insert::getShield() const{
-    return shieldValue->text().toInt();
+    return static_cast<unsigned int>(shieldValue->text().toInt());
 }//getShield
 
 QPushButton* Insert::getAdd() const{
@@ -76,7 +76,6 @@ QPushButton* Insert::getAdd() const{
 QPushButton* Insert::getDel() const{
     return del;
 }//getDel
-
 
 //modificatori
 void Insert::setType(QString q){

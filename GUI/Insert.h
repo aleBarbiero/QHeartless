@@ -24,7 +24,6 @@ class Insert:public QWidget{
         QLabel* hpL;
         QLabel* apL;
         QLabel* shieldL;
-        //QLabel* levL;
         //acquisizione_valori
         QComboBox* typeValue;
         QLineEdit* nameValue;
@@ -45,7 +44,6 @@ class Insert:public QWidget{
         unsigned int getHP() const;
         unsigned int getAP() const;
         unsigned int getShield() const;
-        //unsigned int getLevel() const;
         QPushButton* getAdd() const;
         QPushButton* getDel() const;
         //modificatori
@@ -54,7 +52,6 @@ class Insert:public QWidget{
         void setHP(QString);
         void setAP(QString);
         void setShield(QString);
-        //void setLevel(QString);
     public slots:
         void modify(QString);
         void delElement() const;

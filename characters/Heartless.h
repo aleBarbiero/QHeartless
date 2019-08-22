@@ -19,7 +19,7 @@ class Heartless{
         virtual ~Heartless()=default;
 		
 		//operatori
-        virtual Heartless& operator=(const Heartless&)=default;
+        Heartless& operator=(const Heartless&)=default;
 		bool operator==(Heartless&);
 		bool operator!=(Heartless&);
 		bool operator>(Heartless&);

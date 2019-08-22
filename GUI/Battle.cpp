@@ -20,7 +20,7 @@ Battle::Battle(QWidget* q):
         QStringList datiAtt("Genere");
         datiAtt.append("Nome");
         datiAtt.append("Livello");
-        datiAtt.append("HP");
+        datiAtt.append("HP totali");
         datiAtt.append("HP rimasti");
         datiAtt.append("AP");
         datiAtt.append("% Scudo");
@@ -40,7 +40,7 @@ Battle::Battle(QWidget* q):
         QStringList datiDef("Genere");
         datiDef.append("Nome");
         datiDef.append("Livello");
-        datiDef.append("HP");
+        datiDef.append("HP totali");
         datiDef.append("HP rimasti");
         datiDef.append("AP");
         datiDef.append("% Scudo");

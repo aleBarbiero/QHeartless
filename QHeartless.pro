@@ -78,7 +78,6 @@ DISTFILES += \
     images/NeoShadow.png \
     images/NovaShadow.png \
     images/background.jpg \
-    images/death.png \
     images/heart.png \
     images/title.png \
     qheartless.xml

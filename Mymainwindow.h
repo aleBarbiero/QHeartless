@@ -29,7 +29,7 @@ class MyMainWindow:public QWidget{
     public:
         //costruttore/distruttore
         explicit MyMainWindow(QWidget* =nullptr);
-        ~MyMainWindow()=default;
+        ~MyMainWindow()override =default;
     public slots:
         void indexSet() const;
         void insertSet() const;

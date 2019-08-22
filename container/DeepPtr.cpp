@@ -1,15 +1,6 @@
 #include "DeepPtr.h"
 
 //costruttori/distruttore
-//template<class T> DeepPtr<T>::DeepPtr():el(){}//DeepPtr
-
-/*template<class T> DeepPtr<T>::DeepPtr(const T* newEl){//copia_da_elemento
-    if(newEl==nullptr)
-        el=newEl->clone();
-    else
-        el=nullptr;
-}//DeepPtr*/
-
 template<class T> DeepPtr<T>::DeepPtr(const DeepPtr& newEl){//copia_da_DeepPtr
     el=(newEl.el)->clone();
 }//DeepPtr

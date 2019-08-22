@@ -31,32 +31,32 @@ Container<DeepPtr<Heartless>> MyXml::load(const QString& file) const{
           read.readNextStartElement();
           std::string name=read.readElementText().toStdString();
           read.readNextStartElement();
-          unsigned int hp=read.readElementText().toInt();
+          unsigned int hp=static_cast<unsigned int>(read.readElementText().toInt());
           read.readNextStartElement();
-          unsigned int dam=read.readElementText().toInt();
+          unsigned int dam=static_cast<unsigned int>(read.readElementText().toInt());
           if (type==QString::fromStdString("Defender")){
             read.readNextStartElement();
-            unsigned int shield=read.readElementText().toInt();
+            unsigned int shield=static_cast<unsigned int>(read.readElementText().toInt());
             Defender def(hp,name,dam,shield);
             temp.pushLast(&def);
           }else if(type==QString::fromStdString("NeoShadow")){
                     read.readNextStartElement();
-                    unsigned int ap=read.readElementText().toInt();
+                    unsigned int ap=static_cast<unsigned int>(read.readElementText().toInt());
                     NeoShadow neo(hp,name,dam,ap);
                     temp.pushLast(&neo);
                   }else if(type == QString::fromStdString("NovaShadow")){
                             read.readNextStartElement();
-                            unsigned int ap=read.readElementText().toInt();
+                            unsigned int ap=static_cast<unsigned int>(read.readElementText().toInt());
                             NovaShadow nova(hp,name,dam,ap);
                             temp.pushLast(&nova);
                          }else if(type==QString::fromStdString("ArmedDefender")){
                                    read.readNextStartElement();
-                                   unsigned int shield=read.readElementText().toInt();
+                                   unsigned int shield=static_cast<unsigned int>(read.readElementText().toInt());
                                    ArmedDefender armd(hp,name,dam,shield);
                                    temp.pushLast(&armd);
                                }else if(type==QString::fromStdString("Darksider")){
                                        read.readNextStartElement();
-                                       unsigned int ap=read.readElementText().toInt();
+                                       unsigned int ap=static_cast<unsigned int>(read.readElementText().toInt());
                                        Darksider drk(hp,name,dam,ap);
                                        temp.pushLast(&drk);
                                 }//internal_if_else

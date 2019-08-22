@@ -11,8 +11,6 @@ RemoveL::RemoveL(QWidget* q):
     searchFor(new QComboBox(this)),
     find(new QPushButton("Cerca")),
     del(new QPushButton("Elimina")),
-    //ok(new QPushButton("Conferma")),
-    //ann(new QPushButton("Annulla")),
     msg(new QMessageBox()){
         QVBoxLayout* mainL=new QVBoxLayout(this);
         insertSearch=new QHBoxLayout();

@@ -38,11 +38,11 @@ int Model::count() const{
 }//count
 
 unsigned int Model::att(unsigned int i){
-    return (*(Q.begin() + i))->attack();
+    return (*(Q.begin() + static_cast<int>(i)))->attack();
 }//attack
 
 unsigned int Model::def(unsigned int i,int d){
-    return (*(Q.begin()+i))->defend(d);
+    return (*(Q.begin()+static_cast<int>(i)))->defend(static_cast<unsigned int>(d));
 }//def
 
 bool Model::searchS(int i, const QRegExp& r, const QString& s) const{
@@ -67,13 +67,3 @@ Container<DeepPtr<Heartless>> Model::getQ()const{
     return Q;
 }//getQ
 
-/*int Model::getIName(string nome,int n) const{
-   while(){
-
-    }
-}//getIName
-
-int Model::getIType(string, int) const{
-
-}//getIType
-*/
